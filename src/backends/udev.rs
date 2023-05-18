@@ -414,6 +414,7 @@ impl MagmaState<UdevData> {
                         // and then select the closest refresh rate (e.g. to match 59.98 as 60)
                         .min_by_key(|mode| {
                             let refresh_rate = WlMode::from(**mode).refresh;
+                            info!(refresh_rate);
                             (output_config.mode_refresh() as i32 - refresh_rate).abs()
                         })
                         .expect("No matching mode found for output config")
