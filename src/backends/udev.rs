@@ -399,6 +399,8 @@ impl MagmaState<UdevData> {
                     connector.interface().as_str(),
                     connector.interface_id()
                 );
+                info!("{:#?}", connector
+                    .modes());
                 info!("New output connected, name: {}", name);
                 let drm_mode = if CONFIG.outputs.contains_key(&name) {
                     let output_config = &CONFIG.outputs[&name];
